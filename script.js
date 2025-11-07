@@ -43,17 +43,23 @@ window.addEventListener('scroll', () => {
     }
 });
 
-// Intersection Observer for fade-in animations
+// Intersection Observer for reveal animations
 const observerOptions = {
-    threshold: 0.1,
-    rootMargin: '0px 0px -100px 0px'
+    threshold: 0.15,
+    rootMargin: '0px 0px -50px 0px'
 };
 
 const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
-            entry.target.style.opacity = '1';
-            entry.target.style.transform = 'translateY(0)';
+            entry.target.classList.add('active');
+            
+            // Add sequential reveal to child elements
+            const children = entry.target.querySelectorAll('.reveal');
+            children.forEach((child, index) => {
+                child.classList.add(`reveal-delay-${index + 1}`);
+                child.classList.add('active');
+            });
         }
     });
 }, observerOptions);
