@@ -95,18 +95,24 @@ contactForm.addEventListener('submit', (e) => {
     contactForm.reset();
 });
 
-// Add typing effect to hero subtitle (optional enhancement)
+// Typing effect for hero subtitle
 const heroSubtitle = document.querySelector('.hero-subtitle');
 const subtitleText = heroSubtitle.textContent;
+heroSubtitle.textContent = '';
 let charIndex = 0;
 
 function typeEffect() {
     if (charIndex < subtitleText.length) {
         heroSubtitle.textContent = subtitleText.substring(0, charIndex + 1);
         charIndex++;
-        setTimeout(typeEffect, 100);
+        setTimeout(typeEffect, 50);
     }
 }
+
+// Start typing effect when the page loads
+document.addEventListener('DOMContentLoaded', () => {
+    setTimeout(typeEffect, 1000);
+});
 
 // Uncomment to enable typing effect on page load
 // heroSubtitle.textContent = '';
