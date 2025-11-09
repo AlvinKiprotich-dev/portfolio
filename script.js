@@ -110,8 +110,21 @@ function typeEffect() {
 }
 
 // Start typing effect when the page loads
+// Ensure styles are loaded and applied
 document.addEventListener('DOMContentLoaded', () => {
+    // Force repaint to ensure styles are applied
+    document.body.style.display = 'none';
+    document.body.offsetHeight; // trigger reflow
+    document.body.style.display = '';
+
+    // Start typing effect
     setTimeout(typeEffect, 1000);
+
+    // Ensure sections are visible
+    document.querySelectorAll('section').forEach(section => {
+        section.style.opacity = '1';
+        section.style.visibility = 'visible';
+    });
 });
 
 // Uncomment to enable typing effect on page load
