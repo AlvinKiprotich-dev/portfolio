@@ -43,17 +43,23 @@ window.addEventListener('scroll', () => {
     }
 });
 
-// Intersection Observer for fade-in animations
+// Intersection Observer for reveal animations
 const observerOptions = {
-    threshold: 0.1,
-    rootMargin: '0px 0px -100px 0px'
+    threshold: 0.15,
+    rootMargin: '0px 0px -50px 0px'
 };
 
 const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
-            entry.target.style.opacity = '1';
-            entry.target.style.transform = 'translateY(0)';
+            entry.target.classList.add('active');
+            
+            // Add sequential reveal to child elements
+            const children = entry.target.querySelectorAll('.reveal');
+            children.forEach((child, index) => {
+                child.classList.add(`reveal-delay-${index + 1}`);
+                child.classList.add('active');
+            });
         }
     });
 }, observerOptions);
@@ -89,18 +95,37 @@ contactForm.addEventListener('submit', (e) => {
     contactForm.reset();
 });
 
-// Add typing effect to hero subtitle (optional enhancement)
+// Typing effect for hero subtitle
 const heroSubtitle = document.querySelector('.hero-subtitle');
 const subtitleText = heroSubtitle.textContent;
+heroSubtitle.textContent = '';
 let charIndex = 0;
 
 function typeEffect() {
     if (charIndex < subtitleText.length) {
         heroSubtitle.textContent = subtitleText.substring(0, charIndex + 1);
         charIndex++;
-        setTimeout(typeEffect, 100);
+        setTimeout(typeEffect, 50);
     }
 }
+
+// Start typing effect when the page loads
+// Ensure styles are loaded and applied
+document.addEventListener('DOMContentLoaded', () => {
+    // Force repaint to ensure styles are applied
+    document.body.style.display = 'none';
+    document.body.offsetHeight; // trigger reflow
+    document.body.style.display = '';
+
+    // Start typing effect
+    setTimeout(typeEffect, 1000);
+
+    // Ensure sections are visible
+    document.querySelectorAll('section').forEach(section => {
+        section.style.opacity = '1';
+        section.style.visibility = 'visible';
+    });
+});
 
 // Uncomment to enable typing effect on page load
 // heroSubtitle.textContent = '';
