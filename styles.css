@@ -24,19 +24,19 @@ body {
 }
 
 :root {
-    --primary-color: #2563eb;
-    --secondary-color: #7c3aed;
-    --accent-color: #059669;
-    --gradient-start: #1d4ed8;
-    --gradient-end: #7c3aed;
+    --primary-color: #0066ff;
+    --secondary-color: #0052cc;
+    --accent-color: #0096ff;
+    --gradient-start: #0052cc;
+    --gradient-end: #0096ff;
     --text-dark: #111827;
     --text-light: #4b5563;
-    --bg-light: #f3f4f6;
+    --bg-light: #f0f6ff;
     --bg-white: #ffffff;
-    --border-color: #e2e8f0;
-    --glass-bg: rgba(255, 255, 255, 0.1);
-    --glass-border: rgba(255, 255, 255, 0.2);
-    --glass-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    --border-color: #d4e3ff;
+    --glass-bg: rgba(0, 102, 255, 0.05);
+    --glass-border: rgba(0, 102, 255, 0.2);
+    --glass-shadow: 0 8px 32px 0 rgba(0, 102, 255, 0.2);
     --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
     --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
     --card-hover-y: -8px;
@@ -170,7 +170,7 @@ body {
     min-height: 100vh;
     display: flex;
     align-items: center;
-    background: linear-gradient(135deg, var(--gradient-start) 0%, var(--gradient-end) 100%);
+    background: linear-gradient(135deg, #0052cc 0%, #0096ff 100%);
     background-color: var(--primary-color);
     color: white;
     padding: 80px 0;
@@ -687,12 +687,13 @@ section > .container {
 }
 
 .tag {
-    background-color: var(--bg-light);
-    color: var(--primary-color);
+    background-color: #e0f0ff;
+    color: #0066ff;
     padding: 0.3rem 0.8rem;
     border-radius: 20px;
     font-size: 0.85rem;
     font-weight: 500;
+    border: 1px solid #b3d9ff;
 }
 
 .project-links {
