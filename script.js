@@ -95,7 +95,24 @@ contactForm.addEventListener('submit', (e) => {
     contactForm.reset();
 });
 
-// Typing effect for hero subtitle
+// Video auto-pause on other videos
+const videos = document.querySelectorAll('video');
+videos.forEach(video => {
+    video.addEventListener('play', function() {
+        videos.forEach(otherVideo => {
+            if (otherVideo !== video) {
+                otherVideo.pause();
+            }
+        });
+    });
+});
+
+// Ensure videos are visible
+document.querySelectorAll('.video-container video').forEach(video => {
+    video.style.display = 'block';
+    video.style.width = '100%';
+    video.style.height = '100%';
+});
 const heroSubtitle = document.querySelector('.hero-subtitle');
 const subtitleText = heroSubtitle.textContent;
 heroSubtitle.textContent = '';
