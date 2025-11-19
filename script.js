@@ -3,16 +3,11 @@ This is a refactored script to combine all your features, fix conflicts,
 and improve performance.
 
 KEY CHANGES:
-1.  One Scroll Listener: All scroll-based actions (navbar, active link, parallax)
+1.  One Scroll Listener: All scroll-based actions (navbar, active link, back-to-top)
     are in ONE event listener for much better performance.
-2.  CSS Classes: JS now adds/removes classes (e.g., '.scrolled', '.is-visible').
-    The styling is handled in your CSS file (see the CSS I provided).
-    This is cleaner and more maintainable.
-3.  Observer Fix: The Intersection Observer now correctly toggles a class
-    and stops observing elements once they are visible.
-4.  Conflict Fix: Removed the 'DOMContentLoaded' hack that was
-    fighting with the Intersection Observer.
-5.  PERFORMANCE: Removed JS-based smooth scroll in favor of CSS.
+2.  CSS Classes: JS now adds/removes classes.
+3.  Observer Fix: Intersection Observer uses .active class.
+4.  NEW: Dark Mode Toggle added.
 */
 
 // Wait for the DOM to be fully loaded
@@ -27,6 +22,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const contactForm = document.getElementById('contactForm');
     const videos = document.querySelectorAll('video');
     const heroSubtitle = document.querySelector('.hero-subtitle');
+    const backToTop = document.getElementById('backToTop'); 
+    const progressBar = document.getElementById('progressBar');
+    const themeToggle = document.getElementById('theme-toggle'); // NEW: Theme toggle button
 
     // === 2. MOBILE NAVIGATION ===
     if (hamburger && navMenu) {
@@ -44,10 +42,32 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // === 3. SMOOTH SCROLL (REMOVED) ===
-    // This functionality is now handled by 'scroll-behavior: smooth;' in CSS
-    // for better performance.
+    // === 3. DARK MODE TOGGLE (NEW) ===
+    if (themeToggle) {
+        const body = document.body;
+        const icon = themeToggle.querySelector('i');
 
+        // Check local storage for saved theme
+        if (localStorage.getItem('theme') === 'dark') {
+            body.classList.add('dark-mode');
+            icon.classList.remove('fa-moon');
+            icon.classList.add('fa-sun');
+        }
+
+        themeToggle.addEventListener('click', () => {
+            body.classList.toggle('dark-mode');
+            
+            if (body.classList.contains('dark-mode')) {
+                localStorage.setItem('theme', 'dark');
+                icon.classList.remove('fa-moon');
+                icon.classList.add('fa-sun');
+            } else {
+                localStorage.setItem('theme', 'light');
+                icon.classList.remove('fa-sun');
+                icon.classList.add('fa-moon');
+            }
+        });
+    }
 
     // === 4. SCROLL EVENT HANDLER ===
     // All scroll-based logic is combined into one function
@@ -55,14 +75,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const scrollY = window.pageYOffset;
         const navHeight = navbar.offsetHeight;
 
-        // --- Logic 1: Navbar Background ---
-        if (window.scrollY > 50) {
-            navbar.classList.add('scrolled');
-        } else {
-            navbar.classList.remove('scrolled');
-        }
-
-        // --- Logic 2: Active Nav Link ---
+        // --- Logic 1: Active Nav Link ---
         let current = '';
         sections.forEach(section => {
             const sectionTop = section.offsetTop;
@@ -78,6 +91,26 @@ document.addEventListener('DOMContentLoaded', () => {
                 link.classList.add('active');
             }
         });
+
+        // --- Logic 2: Back To Top Button ---
+        // Show button if scrolled more than 500px
+        if (backToTop) {
+            if (scrollY > 500) {
+                backToTop.classList.add('active');
+            } else {
+                backToTop.classList.remove('active');
+            }
+        }
+
+        // --- Logic 3: Scroll Progress Bar ---
+        // Calculate percentage of page scrolled
+        const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+        const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+        const scrolled = (winScroll / height) * 100;
+        
+        if (progressBar) {
+            progressBar.style.width = scrolled + "%";
+        }
     }
     // Add the single scroll listener
     window.addEventListener('scroll', handleScroll);
@@ -87,6 +120,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
     // === 5. INTERSECTION OBSERVER (for reveal animations) ===
+    const revealElements = document.querySelectorAll('.reveal');
+
     const observerOptions = {
         threshold: 0.15, // Trigger when 15% is visible
         rootMargin: '0px 0px -50px 0px'
@@ -95,18 +130,16 @@ document.addEventListener('DOMContentLoaded', () => {
     const observer = new IntersectionObserver((entries, observer) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                
-                // Add the .is-visible class (defined in CSS)
-                entry.target.classList.add('is-visible');
-
+                // Add the .active class to trigger the CSS animation
+                entry.target.classList.add('active');
                 // Stop observing the element once it's visible
                 observer.unobserve(entry.target);
             }
         });
     }, observerOptions);
 
-    // Observe all elements *except* the hero (which is visible by default)
-    document.querySelectorAll('section:not(.hero), .skill-card, .project-card, .stat-item').forEach(element => {
+    // Observe all elements with the .reveal class
+    revealElements.forEach(element => {
         observer.observe(element);
     });
 
@@ -156,5 +189,5 @@ document.addEventListener('DOMContentLoaded', () => {
         setTimeout(typeEffect, 1000);
     }
     
-    console.log('Portfolio website loaded successfully!');
+    console.log('Portfolio website loaded successfully! v2.0');
 });
