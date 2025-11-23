@@ -2,7 +2,7 @@
 
 A modern, responsive portfolio website showcasing my skills as a Mobile App Developer specializing in Flutter and Django.
 
-## 🚀 Technologies Used
+##  Technologies Used
 
 - HTML5
 - CSS3
@@ -10,7 +10,7 @@ A modern, responsive portfolio website showcasing my skills as a Mobile App Deve
 - Font Awesome Icons
 - Responsive Design
 
-## ✨ Features
+##  Features
 
 - **Responsive Design**: Fully responsive across all devices
 - **Smooth Animations**: Intersection Observer API for smooth scroll animations
@@ -21,7 +21,7 @@ A modern, responsive portfolio website showcasing my skills as a Mobile App Deve
 - **Contact Form**: Functional contact form for potential clients
 - **Social Media Links**: Quick access to LinkedIn and GitHub profiles
 
-## 📂 Project Structure
+##  Project Structure
 
 ```
 portfolio/
@@ -91,7 +91,7 @@ Modify the CSS variables in `styles.css`:
 }
 ```
 
-## 📱 Sections Overview
+##  Sections Overview
 
 1. **Hero Section**: Introduction with call-to-action buttons
 2. **About Section**: Personal introduction and statistics
@@ -99,7 +99,7 @@ Modify the CSS variables in `styles.css`:
 4. **Projects Section**: Portfolio of completed projects
 5. **Contact Section**: Contact form and social links
 
-## 🔧 Future Enhancements
+##  Future Enhancements
 
 - [ ] Add dark mode toggle
 - [ ] Integrate backend for contact form (Django REST API)
@@ -108,16 +108,14 @@ Modify the CSS variables in `styles.css`:
 - [ ] Add downloadable resume
 - [ ] Implement project filtering by technology
 
-## 📄 License
+##  License
 
 This project is open source and available under the MIT License.
 
-## 🤝 Connect With Me
+##  Connect With Me
 
 - **LinkedIn**: [linkedin.com/in/alvinkiprotich](https://www.linkedin.com/in/alvinkiprotich)
 - **GitHub**: [github.com/alvinkiprotich](https://github.com/alvinkiprotich)
-- **Email**: contact@alvinkiprotich.com
+- **Email**: alvinkiprotichkipchoge@gmail.com
 
 ---
-
-Built with ❤️ by Alvin Kiprotich
