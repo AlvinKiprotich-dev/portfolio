@@ -155,7 +155,7 @@ document.addEventListener('DOMContentLoaded', () => {
             };
             
             console.log('Form submitted:', formData);
-            alert('Thank you for your message! I will get back to you soon.');
+            alert('Thank you for reaching out! I will get back to you soon.');
             contactForm.reset();
         });
     }
