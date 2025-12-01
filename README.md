@@ -8,7 +8,6 @@ A modern, responsive portfolio website showcasing my skills as a Mobile App Deve
 - CSS3
 - JavaScript (Vanilla)
 - Font Awesome Icons
-- Responsive Design
 
 ##  Features
 
