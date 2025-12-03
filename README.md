@@ -7,7 +7,7 @@ A modern, responsive portfolio website showcasing my skills as a Mobile App Deve
 - HTML5
 - CSS(3)
 - JavaScript (Vanilla)
-- Font Awesome Icons
+- Icons (Font Awesome)
 
 ##  Features
 
