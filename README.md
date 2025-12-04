@@ -44,7 +44,7 @@ portfolio/
 2. Navigate to "Pages" section
 3. Select the branch (usually `main`)
 4. Select the folder (usually `/root`)
-5. Click "Save"
+5. Then click "Save"
 6. Your site will be published at `https://yourusername.github.io/portfolio`
 
 ### Custom Domain (Optional)
