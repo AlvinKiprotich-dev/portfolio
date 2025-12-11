@@ -11,7 +11,7 @@ A modern, responsive portfolio website showcasing my skills as a Mobile App Deve
 
 ##  Features
 
-- **Responsive Design**: Fully responsive across all devices
+- **Responsive Design**: Fully responsive across all devices.
 - **Smooth Animations**: Intersection Observer API for smooth scroll animations
 - **Mobile Navigation**: Hamburger menu for mobile devices
 - **Modern UI**: Clean and professional design with gradient hero section
