@@ -4,7 +4,7 @@ A modern, responsive portfolio website showcasing my skills as a Mobile App Deve
 
 ##  Technologies Used
 
-- HTML5
+- HTML 5
 - CSS(3)
 - JavaScript (Vanilla)
 - Icons (Font Awesome)
