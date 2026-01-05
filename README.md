@@ -1,4 +1,5 @@
-# Alvin Kiprotich - Portfolio Website
+# Alvin Kiprotich - Portfolio Website.
+
 A modern, responsive portfolio website showcasing my skills as a Mobile App Developer specializing in Flutter and Django.
 
 ##  Technologies Used
