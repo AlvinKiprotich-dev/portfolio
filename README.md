@@ -15,7 +15,7 @@ A modern, responsive portfolio website showcasing my skills as a Mobile App Deve
 - **Mobile Navigation**: Hamburger menu for mobile devices
 - **Modern UI**: Clean and professional design with gradient hero section
 - **Project Showcase**: Display your Flutter and Django projects
-- **Skills Section**: Highlight your technical expertise
+- **My Skills**: Highlight your technical expertise
 - **Contact Form**: Functional contact form for potential clients
 - **Social Media Links**: Quick access to LinkedIn and GitHub profiles
 
